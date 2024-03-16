@@ -6,7 +6,7 @@ coundown using flippers
 ``` 
 <div id="myFlipper" class="flipper flipper-dark"
      			data-reverse="true"
-     			data-datetime="2024-09-21 19:24:39" 
+     			data-datetime="2025-07-20 19:24:39" 
      			data-template=ddd|HH|ii|ss     		
 			data-labels="Days|Hours|Minutes|Seconds">
 		</div>
