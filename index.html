@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Countdown website">
+	<meta name="author" content="">
+	<link rel="shortcut icon" href="favicon.png">
+	<title>Flipper Countdown to Date</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/style.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="js/jquery.flipper-responsive-v1.js"></script>
+</head>
+<body>
+
+	<div class="container">
+		<div class="page-header" style="text-align:center;margin-top:-5px">
+			<h1>Countdown to 2024-09-21 19:24:39</h1>
+		</div>
+
+		<div id="myFlipper" class="flipper flipper-dark"
+     			data-reverse="true"
+     			data-datetime="2024-09-21 19:24:39" 
+     			data-template=ddd|HH|ii|ss     		
+			data-labels="Days|Hours|Minutes|Seconds">
+		</div>
+	<script>
+  		jQuery(function($){
+    		$('#myFlipper').flipper('init');
+  		});
+		  function setLongTimeout(secondsFromNow) {
+            var now = Date.now();
+            var targetDate = now + secondsFromNow * 1000;
+            var delay = targetDate - now;
+            const maxDelay = 2147483647;
+
+            if (delay > maxDelay) {
+                var nextCheckDate = new Date(now + maxDelay);
+                console.log("Delay too large, waiting for the next interval. Next check at " + nextCheckDate);
+                setTimeout(function() { setLongTimeout(secondsFromNow); }, maxDelay);
+            } else {
+                var refreshDate = new Date(now + delay);
+                console.log("Page will refresh at " + refreshDate);
+                setTimeout(function() { location.reload(); }, delay);
+            }
+        }
+        var secondsFromNow = 3045000; 
+        setLongTimeout(secondsFromNow);
+	</script>
+		
+</div>
+
+</body>
+</html>
